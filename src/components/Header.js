@@ -93,12 +93,18 @@ const Header = () => {
 							>
 								{user && (
 									<Link to='/create-item'>
-										<p className='cursor-pointer py-1 px-4 flex items-center hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base'>
+										<p
+											className='cursor-pointer py-1 px-4 flex items-center hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base'
+											onClick={() => setShowMenu(false)}
+										>
 											<MdAdd className='mr-1' /> New Item
 										</p>
 									</Link>
 								)}
-								<p className='cursor-pointer py-1 px-4 flex items-center hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base'>
+								<p
+									className='cursor-pointer py-1 px-4 flex items-center hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base'
+									onClick={handleLogout}
+								>
 									<MdLogout className='mr-1' />
 									Logout
 								</p>
@@ -143,7 +149,10 @@ const Header = () => {
 						>
 							{user && (
 								<Link to='/create-item'>
-									<p className='cursor-pointer py-1 px-4 flex items-center hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base'>
+									<p
+										className='cursor-pointer py-1 px-4 flex items-center hover:bg-slate-200 transition-all duration-100 ease-in-out text-textColor text-base'
+										onClick={() => setShowMenu(false)}
+									>
 										New Item
 										<MdAdd className='ml-1' />
 									</p>
@@ -155,16 +164,28 @@ const Header = () => {
 								exit={{ opacity: 0, x: 200 }}
 								className='flex items-center flex-col'
 							>
-								<li className='text-base hover:bg-slate-200 text-headingColor cursor-pointer duration-100 transition-all ease-in-out w-full py-1 pr-4 pl-4'>
+								<li
+									className='text-base hover:bg-slate-200 text-headingColor cursor-pointer duration-100 transition-all ease-in-out w-full py-1 pr-4 pl-4'
+									onClick={() => setShowMenu(false)}
+								>
 									Home
 								</li>
-								<li className='text-base hover:bg-slate-200 text-headingColor cursor-pointer duration-100 transition-all ease-in-out w-full py-1 pr-4 pl-4'>
+								<li
+									className='text-base hover:bg-slate-200 text-headingColor cursor-pointer duration-100 transition-all ease-in-out w-full py-1 pr-4 pl-4'
+									onClick={() => setShowMenu(false)}
+								>
 									Menu
 								</li>
-								<li className='text-base hover:bg-slate-200 text-headingColor cursor-pointer duration-100 transition-all ease-in-out w-full py-1 pr-4 pl-4'>
+								<li
+									className='text-base hover:bg-slate-200 text-headingColor cursor-pointer duration-100 transition-all ease-in-out w-full py-1 pr-4 pl-4'
+									onClick={() => setShowMenu(false)}
+								>
 									About Us
 								</li>
-								<li className='text-base hover:bg-slate-200 text-headingColor cursor-pointer duration-100 transition-all ease-in-out w-full py-1 pr-4 pl-4'>
+								<li
+									className='text-base hover:bg-slate-200 text-headingColor cursor-pointer duration-100 transition-all ease-in-out w-full py-1 pr-4 pl-4'
+									onClick={() => setShowMenu(false)}
+								>
 									Service
 								</li>
 							</ul>
