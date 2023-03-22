@@ -12,6 +12,7 @@ const App = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			await getAllFoodItems().then((data) => {
+				console.log({ data });
 				dispatch({
 					type: actionTypes.SET_FOOD_ITEMS,
 					foodItems: data,

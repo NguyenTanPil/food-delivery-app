@@ -4,9 +4,13 @@ import { motion } from 'framer-motion';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import RowContainer from './RowContainer';
 import { useStateValue } from '../context/StateProvider';
+import MenuContainer from './MenuContainer';
+import CartContainer from './CartContainer';
 
 const MainContainer = () => {
-	const [{ foodItems }, dispatch] = useStateValue();
+	const [{ foodItems, cartShow }, dispatch] = useStateValue();
+
+	console.log({ foodItems });
 
 	const rowContainerRef = useRef();
 
@@ -26,7 +30,7 @@ const MainContainer = () => {
 					<div className='hidden md:flex items-center gap-3'>
 						<motion.div
 							whileTap={{ scale: 0.75 }}
-							className='w-8 h-8 rounded-lg bg-orange-300 hover:bg-orange-500 flex items-center justify-center cursor-pointer transition-all duration-100 ease-in-out hover:shadow-lg'
+							className='w-8 h-8 rounded-lg bg-orange-300 hover:bg-orange-500 flex items-center justify-center cursor-pointer  hover:shadow-lg'
 						>
 							<MdChevronLeft
 								className='text-lg text-white'
@@ -51,7 +55,10 @@ const MainContainer = () => {
 					data={foodItems}
 				/>
 			</section>
-			<section className='w-full my-6'></section>
+			<section className='w-full my-6'>
+				<MenuContainer />
+				{cartShow && <CartContainer />}
+			</section>
 		</div>
 	);
 };
