@@ -10,8 +10,6 @@ import CartContainer from './CartContainer';
 const MainContainer = () => {
 	const [{ foodItems, cartShow }, dispatch] = useStateValue();
 
-	console.log({ foodItems });
-
 	const rowContainerRef = useRef();
 
 	const handleScroll = (scrollOffset) => {

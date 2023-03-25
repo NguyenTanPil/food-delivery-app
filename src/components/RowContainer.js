@@ -2,8 +2,29 @@ import React, { forwardRef } from 'react';
 import { MdShoppingCart } from 'react-icons/md';
 import { motion } from 'framer-motion';
 import NotFound from '../images/NotFound.svg';
+import { useStateValue } from '../context/StateProvider';
+import { actionTypes } from '../context/reducer';
 
 const RowContainer = forwardRef(({ flag, data }, ref) => {
+	const [{ cartItems }, dispatch] = useStateValue();
+
+	const handleAddToCart = (item) => {
+		const newItem = { ...item, initialQty: item.qty };
+		const existItem = cartItems.find((cartItem) => cartItem.id === item.id);
+		let newCartItems;
+
+		if (existItem) {
+			newCartItems = cartItems.map((cartItem) =>
+				cartItem.id === item.id ? { ...cartItem, qty: cartItem.qty + 1, initialQty: cartItem.qty + 1 } : cartItem,
+			);
+		} else {
+			newCartItems = [...cartItems, newItem];
+		}
+
+		dispatch({ type: actionTypes.SET_CART_ITEMS, cartItems: newCartItems });
+		localStorage.setItem('cartItems', JSON.stringify(newCartItems));
+	};
+
 	return (
 		<div
 			ref={ref}
@@ -28,6 +49,7 @@ const RowContainer = forwardRef(({ flag, data }, ref) => {
 								<motion.div
 									whileTap={{ scale: 0.75 }}
 									className='w-8 h-8 rounded-full bg-red-600 flex items-center justify-center cursor-pointer hover:shadow-md'
+									onClick={() => handleAddToCart(item)}
 								>
 									<MdShoppingCart className='text-white' />
 								</motion.div>

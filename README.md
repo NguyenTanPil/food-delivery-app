@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# Food Delivery Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Information
+
+Youtube Chanel: Vetrivel Ravi
+Video Link: [Full Stack Food Delivery App - React Redux Reducer, Firebase | For Beginners](https://www.youtube.com/watch?v=kmU7uX3ZHJc&t=24877s)
+
+### Thanks for Vetrivel Ravi
 
 ## Available Scripts
 
